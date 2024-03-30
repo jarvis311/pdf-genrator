@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const AWS = require('aws-sdk')
  exports.genratePdf =  async(req,res) => {
   try {
-    let registerNumber = req?.body?.registerNumber || "GJ21DV5448"
+    let registerNumber = req?.body?.registerNumber || "dnfkngkghdkhbbj"
     let challanDetail = []
 
     // Create a new PDF document
@@ -110,7 +110,9 @@ const generatePdfObject = async (challanDetail, registerNumber) => {
       // Add more dummy data as needed
     ];
       // Launch a headless browser
-      const browser = await puppeteer.launch();
+      const browser = await puppeteer.launch({
+        executablePath: '/usr/bin/chromium-browser'
+      });
 
       // Create a new page
       const page = await browser.newPage();
